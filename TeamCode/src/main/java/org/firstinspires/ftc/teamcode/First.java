@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-@Autonomous(name="Test", group="Test")
+@Autonomous(name="First", group="First")
 public class First extends OpMode {
     @Override
     public void init() {
