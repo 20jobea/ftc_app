@@ -21,7 +21,7 @@ public class Test extends OpMode {
          try {
              Thread.sleep(500);
          } catch (Exception e) {
-
+              telemetry.addData("asdf", "asdf");
          }
          motor.setPower(0);
     }
