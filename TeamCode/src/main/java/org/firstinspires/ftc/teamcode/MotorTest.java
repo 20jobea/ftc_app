@@ -1,0 +1,34 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
+@TeleOp(name="Motor Test", group="Test")
+public class MotorTest  extends OpMode {
+    DcMotor right;
+    DcMotor left;
+    @Override
+    public void init() {
+        telemetry.addData("status", "init");
+        right = this .hardwareMap.get(DcMotor.class, "Right");
+        left = this.hardwareMap.get(DcMotor.class, "Left");
+        telemetry.addData("status", "finished");
+    }
+    @Override
+    public void loop() {
+        telemetry.addData("Left X", gamepad1.left_stick_x);
+        telemetry.addData("Left Y", gamepad1.left_stick_y);
+        telemetry.addData("Right X", gamepad1.right_stick_x);
+        telemetry.addData("Right Y", gamepad1.right_stick_y);
+        telemetry.addData("U", gamepad1.dpad_up);
+        telemetry.addData("U", gamepad1.dpad_up);
+        telemetry.addData("R", gamepad1.dpad_right);
+        telemetry.addData("D", gamepad1.dpad_down);
+        telemetry.addData("L", gamepad1.dpad_left);
+
+        right.setPower(gamepad1.right_stick_y);
+        left.setPower(gamepad1.left_stick_y);
+
+    }
+}
