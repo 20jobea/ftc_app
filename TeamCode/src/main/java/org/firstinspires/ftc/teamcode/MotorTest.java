@@ -8,11 +8,15 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class MotorTest  extends OpMode {
     DcMotor right;
     DcMotor left;
+    DcMotor lift;
     @Override
     public void init() {
         telemetry.addData("status", "init");
         right = this .hardwareMap.get(DcMotor.class, "Right");
         left = this.hardwareMap.get(DcMotor.class, "Left");
+        lift = this.hardwareMap.get(DcMotor.class, "Lift");
+        lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         telemetry.addData("status", "finished");
     }
     @Override
@@ -26,9 +30,17 @@ public class MotorTest  extends OpMode {
         telemetry.addData("R", gamepad1.dpad_right);
         telemetry.addData("D", gamepad1.dpad_down);
         telemetry.addData("L", gamepad1.dpad_left);
+        telemetry.addData("Encoder on lift", lift.getCurrentPosition());
 
-        right.setPower(gamepad1.right_stick_y);
+
+        right.setPower(-gamepad1.right_stick_y);
         left.setPower(gamepad1.left_stick_y);
-
+        if (gamepad1.dpad_up) {
+            lift.setPower(0.1);
+        } else if (gamepad1.dpad_down) {
+            lift.setPower(-0.1);
+        } else {
+            lift.setPower(0);
+        }
     }
 }
