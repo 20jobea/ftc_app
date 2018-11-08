@@ -18,7 +18,8 @@ public class AutoEarly extends LinearOpMode {
         lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         waitForStart();;
         lift.setPower(0.3);
-        while (lift.getCurrentPosition() < 1800) {
+        //Change THIS NUMBER!!!!!!!!!!!!!!!!!!!!
+        while (lift.getCurrentPosition() < 10000) {
             telemetry.addData("Lift Position", lift.getCurrentPosition());
         }
         lift.setPower(0);
