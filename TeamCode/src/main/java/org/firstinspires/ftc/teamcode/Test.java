@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+@Disabled
 @Autonomous(name="Test", group="Test")
 public class Test extends OpMode {
     //public RevRobotics40HdHexMotor motor  = this.hardwareMap.get(RevRobotics40HdHexMotor.class, "Test");
