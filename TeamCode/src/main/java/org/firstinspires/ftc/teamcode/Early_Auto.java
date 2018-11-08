@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name="Early Auto", group="Auto")
-public class AutoEarly extends LinearOpMode {
+public class Early_Auto extends LinearOpMode {
     DcMotor right;
     DcMotor left;
     DcMotor lift;

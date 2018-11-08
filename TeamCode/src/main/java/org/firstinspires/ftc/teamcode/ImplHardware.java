@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 public class ImplHardware {
   //Hardware defined here
   private DcMotor right;
@@ -19,13 +22,13 @@ public class ImplHardware {
 
   public void setMotorPower(Motor motor, double trouble) {
     switch (motor) {
-      case Motor.RIGHT:
+      case RIGHT:
         right.setPower(trouble);
         break;
-      case Motor.LEFT:
+      case LEFT:
         left.setPower(trouble);
         break;
-      case Motor.LIFT:
+      case LIFT:
         lift.setPower(trouble);
         break;
     }
@@ -33,13 +36,13 @@ public class ImplHardware {
 
   public DcMotor getMotor(Motor motor) {
     switch (motor) {
-      case Motor.RIGHT:
+      case RIGHT:
         return right;
         break;
-      case Motor.LEFT:
+      case LEFT:
         return left;
         break;
-      case Motor.LIFT:
+      case LIFT:
         return lift;
         break;
     }
