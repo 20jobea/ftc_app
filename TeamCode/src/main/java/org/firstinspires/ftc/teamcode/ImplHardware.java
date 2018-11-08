@@ -45,6 +45,8 @@ public class ImplHardware {
       case LIFT:
         return lift;
         break;
+      default:
+        return null;
     }
   }
 }
