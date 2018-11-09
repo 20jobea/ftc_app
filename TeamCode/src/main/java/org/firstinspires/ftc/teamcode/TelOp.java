@@ -13,13 +13,16 @@ public class TelOp extends OpMode {
     telemetry.addData("Init: ", "start");
     robot.init(this.hardwareMap);
     robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
     telemetry.addData("Init: ", "finish");
   }
 
   @Override
   public void loop() {
     telemetry.addData("Encoder on lift", robot.getMotor(ImplHardware.Motor.LIFT).getCurrentPosition());
-    
+    telemetry.addData("Encoder on lift", robot.getMotor(ImplHardware.Motor.RIGHT).getCurrentPosition());
     robot.setMotorPower(ImplHardware.Motor.RIGHT, -gamepad1.right_stick_y);
     robot.setMotorPower(ImplHardware.Motor.LEFT, gamepad1.left_stick_y);
     if (gamepad1.dpad_up) {
