@@ -4,6 +4,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class ImplHardware {
+  //Constants
+  public static final int INCHES_TO_ENCODER = 1;
+  public static final String VUFORIA_KEY = ""; //shhhh
   //Hardware defined here
   private DcMotor right;
   private DcMotor left;
@@ -38,13 +41,10 @@ public class ImplHardware {
     switch (motor) {
       case RIGHT:
         return right;
-        break;
       case LEFT:
         return left;
-        break;
       case LIFT:
         return lift;
-        break;
       default:
         return null;
     }

@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 public class AutoBlueCrater extends Autonomous3058 {
     @Override
     public void runOpMode() {
-
+        init(hardwareMap);
+        //land();
+        move(100000, 0.6);
     }
 }
