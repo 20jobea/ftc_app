@@ -18,9 +18,6 @@ abstract public class Autonomous3058 extends LinearOpMode {
     public void init(HardwareMap hwmap) {
         telemetry.addData("Init: ", "Begin");
         robot.init(hwmap);
-        robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         telemetry.addData("Init: ", "Finish");
         waitForStart();;
     }
