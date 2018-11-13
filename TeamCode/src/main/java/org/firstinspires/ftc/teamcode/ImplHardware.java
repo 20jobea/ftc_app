@@ -6,7 +6,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class ImplHardware {
   //Constants
   public static final int INCHES_TO_ENCODER = 1;
-  public static final String VUFORIA_KEY = ""; //shhhh
+  //shh
+  public static final String VUFORIA_KEY = "AdlbcgL/////AAAAGdkbbJ/FBUjTiZEHQ8wntkBBQpCOLmNv2PWfmvHsWabZ5lRtoGgchQDi9WmxChfQJPOhsKmZdkhWpAupCCzgrXgnUsg2r1Gedla37EHscGaT+fFMuYATkYfe1YBNZjzYKJWDYONYq/ntym+A7cV7Hc3SUf1XlNJ8nYzndDl9S1VvNkGBOocCqQvI7VAU5/Os+D3x/uGNlHWgCtxiDexuTYKENGXk7IUBbbh2ypujcmdzAVThoWFYZMdWNEVAamD1hZapjL5pVba7l8A27kCbGqe11UG2DylMjlQYCUS4f6j41GsSo85J6EzKQFValAzNABVV3pH5TdkqNbVjG9zi19TRHxNUWFVwoWUdI9Sl+P+q"; //shhhh
   //Hardware defined here
   private DcMotor right;
   private DcMotor left;
