@@ -44,10 +44,10 @@ abstract public class Autonomous3058 extends LinearOpMode {
             //robot.getMotor(ImplHardware.Motor.RIGHT).getCurrentPosition() + 
             robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.getMotor(ImplHardware.Motor.RIGHT).setTargetPosition(distance);
+            robot.getMotor(ImplHardware.Motor.RIGHT).setTargetPosition(-distance);
             robot.getMotor(ImplHardware.Motor.LEFT).setTargetPosition(distance);
             robot.setMotorPower(ImplHardware.Motor.LEFT, speed);
-            robot.setMotorPower(ImplHardware.Motor.RIGHT, speed);
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, -speed);
             while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.RIGHT).isBusy() && robot.getMotor(ImplHardware.Motor.RIGHT).isBusy()) {
                 telemetry.addData("Left: ", robot.getMotor(ImplHardware.Motor.LEFT).getCurrentPosition());
                 telemetry.addData("Right: ", robot.getMotor(ImplHardware.Motor.LEFT).getCurrentPosition());
