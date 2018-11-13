@@ -12,10 +12,6 @@ public class TelOp extends OpMode {
   public void init() {
     telemetry.addData("Init: ", "start");
     robot.init(this.hardwareMap);
-    robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-    robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-    robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
     telemetry.addData("Init: ", "finish");
   }
 
