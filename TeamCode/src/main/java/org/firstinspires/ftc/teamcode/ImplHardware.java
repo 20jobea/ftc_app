@@ -21,6 +21,9 @@ public class ImplHardware {
     right = hwMap.get(DcMotor.class, "Right");
     left = hwMap.get(DcMotor.class, "Left");
     lift = hwMap.get(DcMotor.class, "Lift");
+    robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
   }
 
   public void setMotorPower(Motor motor, double trouble) {
