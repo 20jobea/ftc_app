@@ -33,7 +33,8 @@ public class MotorTest  extends OpMode {
         telemetry.addData("Encoder on lift", lift.getCurrentPosition());
 
         if (gamepad1.a) {
-            robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);   
+            lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
         right.setPower(-gamepad1.right_stick_y);
         left.setPower(gamepad1.left_stick_y);

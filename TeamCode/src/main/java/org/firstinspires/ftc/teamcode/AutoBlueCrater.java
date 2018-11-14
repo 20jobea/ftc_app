@@ -8,6 +8,6 @@ public class AutoBlueCrater extends Autonomous3058 {
     public void runOpMode() {
         init(hardwareMap);
         land();
-        move(10000, 0.6);
+        move(1000, 0.3);
     }
 }
