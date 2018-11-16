@@ -25,14 +25,28 @@ abstract public class Autonomous3058 extends LinearOpMode {
         robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         if (opModeIsActive()) { 
             robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.setMotorPower(ImplHardware.Motor.LIFT, 0.3);
-            robot.getMotor(ImplHardware.Motor.LIFT).setTargetPosition(1000);
+            robot.setMotorPower(ImplHardware.Motor.LIFT, -0.3);
+            robot.getMotor(ImplHardware.Motor.LIFT).setTargetPosition(-3300);
             //Change THIS NUMBER!!!!!!!!!!!!!!!!!!!! ^^^^^^^^^^^^^^^^^^
             while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.LIFT).isBusy()) {
                 telemetry.addData("Lift Position", robot.getMotor(ImplHardware.Motor.LIFT).getCurrentPosition());
             }
             robot.setMotorPower(ImplHardware.Motor.LIFT, 0);
             robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, -0.6);
+            rest(1000);
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
+
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0.6);
+            robot.setMotorPower(ImplHardware.Motor.LEFT, 0.6);
+            rest(1000);
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
+            robot.setMotorPower(ImplHardware.Motor.LEFT, 0);
+
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0.6);
+            rest(1000);
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
         }
 
     }
