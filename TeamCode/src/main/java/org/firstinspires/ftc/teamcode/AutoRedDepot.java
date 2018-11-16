@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 public class AutoRedDepot extends Autonomous3058 {
     @Override
     public void runOpMode() {
-
+        init(hardwareMap);
+        land();
     }
 }
