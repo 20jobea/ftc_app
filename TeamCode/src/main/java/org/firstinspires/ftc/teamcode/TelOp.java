@@ -18,8 +18,11 @@ public class TelOp extends OpMode {
 
   @Override
   public void loop() {
+    telemetry.addData("Left Motor Power: ", robot.getMotor(ImplHardware.Motor.LEFT).getPower());
+    telemetry.addData("Right Motor Power: ", robot.getMotor(ImplHardware.Motor.RIGHT).getPower());
     telemetry.addData("Encoder on lift", robot.getMotor(ImplHardware.Motor.LIFT).getCurrentPosition());
-    telemetry.addData("Encoder on lift", robot.getMotor(ImplHardware.Motor.RIGHT).getCurrentPosition());
+    telemetry.addData("Encoder on left", robot.getMotor(ImplHardware.Motor.LEFT).getCurrentPosition());
+    telemetry.addData("Encoder on right", robot.getMotor(ImplHardware.Motor.RIGHT).getCurrentPosition());
     robot.setMotorPower(ImplHardware.Motor.RIGHT, -gamepad1.right_stick_y);
     robot.setMotorPower(ImplHardware.Motor.LEFT, gamepad1.left_stick_y);
     if (gamepad1.dpad_up) {
