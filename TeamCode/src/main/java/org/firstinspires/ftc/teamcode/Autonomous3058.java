@@ -30,8 +30,7 @@ abstract public class Autonomous3058 extends LinearOpMode {
         if (opModeIsActive()) {
             robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.setMotorPower(ImplHardware.Motor.LIFT, -0.3);
-            robot.getMotor(ImplHardware.Motor.LIFT).setTargetPosition(-3300);
-            //Change THIS NUMBER!!!!!!!!!!!!!!!!!!!! ^^^^^^^^^^^^^^^^^^
+            robot.getMotor(ImplHardware.Motor.LIFT).setTargetPosition(-2300);
             while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.LIFT).isBusy()) {
                 telemetry.addData("Lift Position", robot.getMotor(ImplHardware.Motor.LIFT).getCurrentPosition());
             }
@@ -60,7 +59,6 @@ abstract public class Autonomous3058 extends LinearOpMode {
         robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         if (opModeIsActive()) {
-            //robot.getMotor(ImplHardware.Motor.RIGHT).getCurrentPosition() + 
             robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.setMotorPower(ImplHardware.Motor.LEFT, speed);
