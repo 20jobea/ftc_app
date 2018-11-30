@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name="Blue Crater", group="Auto")
+@Autonomous(name = "Blue Crater", group = "Auto")
 public class AutoBlueCrater extends Autonomous3058 {
     @Override
     public void runOpMode() {

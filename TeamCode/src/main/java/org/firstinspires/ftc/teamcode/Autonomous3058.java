@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 abstract public class Autonomous3058 extends LinearOpMode {
     ImplHardware robot = new ImplHardware();
+
     public void rest(long time) {
         try {
             Thread.sleep(time);
@@ -15,15 +16,18 @@ abstract public class Autonomous3058 extends LinearOpMode {
             //yolo
         }
     }
+
     public void init(HardwareMap hwmap) {
         telemetry.addData("Init: ", "Begin");
         robot.init(hwmap);
         telemetry.addData("Init: ", "Finish");
-        waitForStart();;
+        waitForStart();
+        ;
     }
+
     public void land() {
         robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        if (opModeIsActive()) { 
+        if (opModeIsActive()) {
             robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.setMotorPower(ImplHardware.Motor.LIFT, -0.3);
             robot.getMotor(ImplHardware.Motor.LIFT).setTargetPosition(-3300);
@@ -50,6 +54,7 @@ abstract public class Autonomous3058 extends LinearOpMode {
         }
 
     }
+
     public void move(int distance, double speed) {
         distance *= ImplHardware.INCHES_TO_ENCODER;
         robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -70,6 +75,6 @@ abstract public class Autonomous3058 extends LinearOpMode {
             robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
             robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        }    
+        }
     }
 }

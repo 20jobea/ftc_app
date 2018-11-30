@@ -5,16 +5,17 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.CRServo;
 
-@TeleOp(name="Motor Test", group="Test")
-public class MotorTest  extends OpMode {
+@TeleOp(name = "Motor Test", group = "Test")
+public class MotorTest extends OpMode {
     DcMotor right;
     DcMotor left;
     DcMotor lift;
     CRServo servo;
+
     @Override
     public void init() {
         telemetry.addData("status", "init");
-        right = this .hardwareMap.get(DcMotor.class, "Right");
+        right = this.hardwareMap.get(DcMotor.class, "Right");
         left = this.hardwareMap.get(DcMotor.class, "Left");
         lift = this.hardwareMap.get(DcMotor.class, "Lift");
         lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -23,6 +24,7 @@ public class MotorTest  extends OpMode {
 
         telemetry.addData("status", "finished");
     }
+
     @Override
     public void loop() {
         telemetry.addData("Left X", gamepad1.left_stick_x);
