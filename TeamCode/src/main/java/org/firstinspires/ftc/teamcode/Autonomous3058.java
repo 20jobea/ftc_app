@@ -33,26 +33,36 @@ abstract public class Autonomous3058 extends LinearOpMode {
             while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.LIFT).isBusy()) {
                 telemetry.addData("Lift Position", robot.getMotor(ImplHardware.Motor.LIFT).getCurrentPosition());
             }
-            robot.setMotorPower(ImplHardware.Motor.LIFT, 0);
-            //robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-            robot.setMotorPower(ImplHardware.Motor.RIGHT, -0.6);
-            rest(1000);
-            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
-
-            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0.6);
-            robot.setMotorPower(ImplHardware.Motor.LEFT, 0.6);
-            rest(1000);
-            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
-            robot.setMotorPower(ImplHardware.Motor.LEFT, 0);
-
-            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0.6);
-            rest(1000);
-            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
+            runLeft(-100, -0.5);
+            move(100, 0.5);
         }
 
     }
 
+    public void runRight(int distance, double speed) {
+        robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        if (opModeIsActive()) {
+            robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, -speed);
+            robot.getMotor(ImplHardware.Motor.RIGHT).setTargetPosition(-distance);
+            while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.RIGHT).isBusy()) {
+                telemetry.addData("Lift Position", robot.getMotor(ImplHardware.Motor.RIGHT).getCurrentPosition());
+            }
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
+        }
+    }
+    public void runLeft(int distance, double speed) {
+        robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        if (opModeIsActive()) {
+            robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.setMotorPower(ImplHardware.Motor.LEFT, speed);
+            robot.getMotor(ImplHardware.Motor.LEFT).setTargetPosition(distance);
+            while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.LEFT).isBusy()) {
+                telemetry.addData("Lift Position", robot.getMotor(ImplHardware.Motor.LEFT).getCurrentPosition());
+            }
+            robot.setMotorPower(ImplHardware.Motor.LEFT, 0);
+        }
+    }
     public void move(int distance, double speed) {
         distance *= ImplHardware.INCHES_TO_ENCODER;
         robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);

@@ -20,6 +20,9 @@ public class MotorTest extends OpMode {
         lift = this.hardwareMap.get(DcMotor.class, "Lift");
         lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         servo = hardwareMap.get(CRServo.class, "Token");
+        right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
 
 
         telemetry.addData("status", "finished");
@@ -27,7 +30,7 @@ public class MotorTest extends OpMode {
 
     @Override
     public void loop() {
-        telemetry.addData("Left X", gamepad1.left_stick_x);
+       /* telemetry.addData("Left X", gamepad1.left_stick_x);
         telemetry.addData("Left Y", gamepad1.left_stick_y);
         telemetry.addData("Right X", gamepad1.right_stick_x);
         telemetry.addData("Right Y", gamepad1.right_stick_y);
@@ -35,8 +38,11 @@ public class MotorTest extends OpMode {
         telemetry.addData("U", gamepad1.dpad_up);
         telemetry.addData("R", gamepad1.dpad_right);
         telemetry.addData("D", gamepad1.dpad_down);
-        telemetry.addData("L", gamepad1.dpad_left);
+        telemetry.addData("L", gamepad1.dpad_left);*/
         telemetry.addData("Encoder on lift", lift.getCurrentPosition());
+        telemetry.addData("Encoder on left", left.getCurrentPosition());
+        telemetry.addData("Encoder on right", right.getCurrentPosition());
+
 
         if (gamepad1.a) {
             lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
