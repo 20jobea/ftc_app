@@ -7,6 +7,9 @@ public class AutoRedCrater extends Autonomous3058 {
     @Override
     public void runOpMode() {
         init(hardwareMap);
+
         land();
+
+        drop();
     }
 }

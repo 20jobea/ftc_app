@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -12,9 +13,10 @@ public class ImplHardware {
     private DcMotor right;
     private DcMotor left;
     private DcMotor lift;
+    private CRServo servo;
 
     public enum Motor {
-        RIGHT, LEFT, LIFT
+        RIGHT, LEFT, LIFT, SERVO
     }
 
     //Initialises the hardware
@@ -22,9 +24,8 @@ public class ImplHardware {
         right = hwMap.get(DcMotor.class, "Right");
         left = hwMap.get(DcMotor.class, "Left");
         lift = hwMap.get(DcMotor.class, "Lift");
+        servo = hwMap.get(CRServo.class, "Token");
         lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     public void setMotorPower(Motor motor, double trouble) {
@@ -52,5 +53,8 @@ public class ImplHardware {
             default:
                 return null;
         }
+    }
+    public CRServo getServo() {
+        return servo;
     }
 }
