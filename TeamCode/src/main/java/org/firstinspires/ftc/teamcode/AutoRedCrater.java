@@ -10,6 +10,8 @@ public class AutoRedCrater extends Autonomous3058 {
 
         land();
 
+        move(1225, 1);
+
         drop();
     }
 }

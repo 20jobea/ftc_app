@@ -34,8 +34,8 @@ abstract public class Autonomous3058 extends LinearOpMode {
                 telemetry.addData("Lift Position", robot.getMotor(ImplHardware.Motor.LIFT).getCurrentPosition());
             }
             robot.setMotorPower(ImplHardware.Motor.LIFT, 0);
-            runLeft(-100, -0.5);
-            move(100, 0.5);
+            turn(-300, -0.7);
+            turn(300, 0.7);
         }
 
     }
@@ -101,6 +101,27 @@ abstract public class Autonomous3058 extends LinearOpMode {
             robot.setMotorPower(ImplHardware.Motor.LEFT, speed);
             robot.setMotorPower(ImplHardware.Motor.RIGHT, -speed);
             robot.getMotor(ImplHardware.Motor.RIGHT).setTargetPosition(-distance);
+            robot.getMotor(ImplHardware.Motor.LEFT).setTargetPosition(distance);
+            while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.RIGHT).isBusy() && robot.getMotor(ImplHardware.Motor.RIGHT).isBusy()) {
+                telemetry.addData("Left: ", robot.getMotor(ImplHardware.Motor.LEFT).getCurrentPosition());
+                telemetry.addData("Right: ", robot.getMotor(ImplHardware.Motor.LEFT).getCurrentPosition());
+            }
+            robot.setMotorPower(ImplHardware.Motor.LEFT, 0);
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, 0);
+            robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+    public void turn(int distance, double speed) {
+        distance *= ImplHardware.INCHES_TO_ENCODER;
+        robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        if (opModeIsActive()) {
+            robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.getMotor(ImplHardware.Motor.LEFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.setMotorPower(ImplHardware.Motor.LEFT, speed);
+            robot.setMotorPower(ImplHardware.Motor.RIGHT, speed);
+            robot.getMotor(ImplHardware.Motor.RIGHT).setTargetPosition(distance);
             robot.getMotor(ImplHardware.Motor.LEFT).setTargetPosition(distance);
             while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.RIGHT).isBusy() && robot.getMotor(ImplHardware.Motor.RIGHT).isBusy()) {
                 telemetry.addData("Left: ", robot.getMotor(ImplHardware.Motor.LEFT).getCurrentPosition());
