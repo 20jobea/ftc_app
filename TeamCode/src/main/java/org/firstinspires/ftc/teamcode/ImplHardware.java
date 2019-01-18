@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
+
 
 public class ImplHardware {
   //Constants
@@ -12,9 +14,10 @@ public class ImplHardware {
   private DcMotor right;
   private DcMotor left;
   private DcMotor lift;
+  private DcMotor turn;
 
   public enum Motor {
-    RIGHT, LEFT, LIFT
+    RIGHT, LEFT, LIFT, TURN
   }
 
   //Initialises the hardware
@@ -22,9 +25,11 @@ public class ImplHardware {
     right = hwMap.get(DcMotor.class, "Right");
     left = hwMap.get(DcMotor.class, "Left");
     lift = hwMap.get(DcMotor.class, "Lift");
+    turn = hwMap.get(DcMotor.class, "Turn");
     lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-    right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    turn.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
   }
 
   public void setMotorPower(Motor motor, double trouble) {
@@ -38,6 +43,11 @@ public class ImplHardware {
       case LIFT:
         lift.setPower(trouble);
         break;
+      
+   public void SetServo(Servo servo, double trouble) {
+      case TURN:
+      turn.setServo(trouble);
+      }
     }
   }
 
@@ -49,6 +59,8 @@ public class ImplHardware {
         return left;
       case LIFT:
         return lift;
+      case TURN;
+        return turn;
       default:
         return null;
     }
