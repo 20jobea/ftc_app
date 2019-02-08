@@ -29,13 +29,12 @@ abstract public class Autonomous3058 extends LinearOpMode {
         if (opModeIsActive()) {
             robot.getMotor(ImplHardware.Motor.LIFT).setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.setMotorPower(ImplHardware.Motor.LIFT, -0.3);
-            robot.getMotor(ImplHardware.Motor.LIFT).setTargetPosition(-1900);
+            robot.getMotor(ImplHardware.Motor.LIFT).setTargetPosition(-1848);
             while (opModeIsActive() && robot.getMotor(ImplHardware.Motor.LIFT).isBusy()) {
                 telemetry.addData("Lift Position", robot.getMotor(ImplHardware.Motor.LIFT).getCurrentPosition());
             }
             robot.setMotorPower(ImplHardware.Motor.LIFT, 0);
-            turn(-300, -0.7);
-            turn(300, 0.7);
+            turn(-235, -0.7);
         }
 
     }
@@ -133,9 +132,10 @@ abstract public class Autonomous3058 extends LinearOpMode {
             robot.getMotor(ImplHardware.Motor.RIGHT).setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }
+    /*
     public void drop() {
-        robot.getServo().setPower(1);
+        robot.setServo().setPower(1);
         rest(1000);
         robot.getServo().setPower(0);
-    }
+    }*/
 }

@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class ImplHardware {
     //Constants
@@ -13,10 +14,12 @@ public class ImplHardware {
     private DcMotor right;
     private DcMotor left;
     private DcMotor lift;
-    private CRServo servo;
+    private DcMotor arm;
+    private DcMotor extend;
+   // private Servo servo;
 
     public enum Motor {
-        RIGHT, LEFT, LIFT, SERVO
+        RIGHT, LEFT, LIFT, ARM, EXTEND
     }
 
     //Initialises the hardware
@@ -24,7 +27,9 @@ public class ImplHardware {
         right = hwMap.get(DcMotor.class, "Right");
         left = hwMap.get(DcMotor.class, "Left");
         lift = hwMap.get(DcMotor.class, "Lift");
-        servo = hwMap.get(CRServo.class, "Token");
+       // servo = hwMap.get(Servo.class, "Ser");
+        arm = hwMap.get(DcMotor.class, "Arm");
+        extend = hwMap.get(DcMotor.class, "Extend");
         lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
@@ -39,6 +44,12 @@ public class ImplHardware {
             case LIFT:
                 lift.setPower(trouble);
                 break;
+            case ARM:
+                arm.setPower(trouble);
+                break;
+            case EXTEND:
+                arm.setPower(trouble);
+
         }
     }
 
@@ -50,11 +61,15 @@ public class ImplHardware {
                 return left;
             case LIFT:
                 return lift;
+            case ARM:
+                return arm;
+            case EXTEND:
+                return extend;
+
             default:
                 return null;
         }
     }
-    public CRServo getServo() {
-        return servo;
-    }
+   /* public Servo getServo() {
+        return servo;*/
 }

@@ -11,7 +11,5 @@ public class AutoBlueDepot extends Autonomous3058 {
         land();
 
         move(1225, 1);
-
-        drop();
     }
 }

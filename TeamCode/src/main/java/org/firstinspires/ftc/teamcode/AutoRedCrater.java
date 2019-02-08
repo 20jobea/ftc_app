@@ -12,6 +12,5 @@ public class AutoRedCrater extends Autonomous3058 {
 
         move(1225, 1);
 
-        drop();
     }
 }
